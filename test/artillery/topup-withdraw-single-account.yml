@@ -1,0 +1,19 @@
+config:
+  target: "http://localhost:8888/api" # URL API
+  phases:
+    - duration: 60
+      arrivalRate: 1000
+scenarios:
+  - flow:
+      - post:
+          url: "/user/topup"
+          json:
+            userId: "1"
+            amount: 10
+      - post:
+          url: "/user/withdraw"
+          json:
+            userId: "1"
+            amount: 5
+
+
